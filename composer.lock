@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79113af675da86353c10553f41d2752b",
+    "hash": "1ec36de996fb44097b36cb62b26c9d54",
     "packages": [
         {
             "name": "kwetal/dateutils",

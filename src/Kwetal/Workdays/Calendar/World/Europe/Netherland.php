@@ -1,10 +1,10 @@
 <?php
 
-namespace Kwetal\WorkDays\Calendar\World\Europe;
+namespace Kwetal\Workdays\Calendar\World\Europe;
 
-use Kwetal\WorkDays\Calendar\CalendarBase;
-use Kwetal\WorkDays\Traits\WesternCalendar;
-use Kwetal\WorkDays\Traits\ChristianCalendar;
+use Kwetal\Workdays\Calendar\CalendarBase;
+use Kwetal\Workdays\Traits\WesternCalendar;
+use Kwetal\Workdays\Traits\ChristianCalendar;
 
 class Netherland extends CalendarBase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwetal\WorkDays\Traits;
+namespace Kwetal\Workdays\Traits;
 
 use PHPUnit_Framework_TestCase;
 
@@ -10,7 +10,7 @@ class WesternCalenderTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->traitObject = $this->getMockForTrait('Kwetal\WorkDays\Traits\WesternCalendar');
+        $this->traitObject = $this->getMockForTrait('Kwetal\Workdays\Traits\WesternCalendar');
     }
 
     public function testGetVariableHolidaysReturnsEmptyArray()

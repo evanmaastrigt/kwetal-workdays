@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Kwetal\\WorkDays": "src/"
+            "Kwetal\\Workdays": "src/"
         }
     }
 }

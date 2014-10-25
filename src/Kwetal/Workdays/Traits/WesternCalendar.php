@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwetal\WorkDays\Traits;
+namespace Kwetal\Workdays\Traits;
 
 trait WesternCalendar
 {

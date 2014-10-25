@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwetal\WorkDays\Calendar;
+namespace Kwetal\Workdays\Calendar;
 
 class CalendarBase
 {

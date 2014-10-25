@@ -1,6 +1,6 @@
 <?php
 
-namespace Kwetal\WorkDays\Calendar;
+namespace Kwetal\Workdays\Calendar;
 
 use PHPUnit_Framework_TestCase;
 
