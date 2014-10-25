@@ -1,10 +1,10 @@
 <?php
 
-namespace Kwetal\Workdays\Calendar;
+namespace Kwetal\WorkDays\Calendar;
 
 class CalendarBase
 {
-    protected function getWeekendDays()
+    public function getWeekendDays()
     {
         return ['Sat', 'Sun'];
     }
