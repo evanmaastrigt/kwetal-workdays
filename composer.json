@@ -1,5 +1,6 @@
 {
     "name": "kwetal/workdays",
+    "php": ">=5.4.0",
     "require": {
         "kwetal/dateutils": "0.3.*"
     },
