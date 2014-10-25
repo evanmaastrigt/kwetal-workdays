@@ -9,19 +9,19 @@ trait ChristianCalendar
     /**
      * @var bool $hasEpiphany
      */
-    private $hasEpiphany = false;
+    public $hasEpiphany = false;
 
     /**
      * @var bool $hasEasterSunday
      */
-    protected $hasEasterSunday = false;
+    public $hasEasterSunday = false;
 
     /**
      * @var bool $hasEasterMonday
      */
-    private $hasEasterMonday = false;
+    public $hasEasterMonday = false;
 
-    private function getVariableHolidaysChristian($year)
+    public function getVariableHolidaysChristian($year)
     {
         $variableDays = [];
 
@@ -38,7 +38,7 @@ trait ChristianCalendar
         return $variableDays;
     }
 
-    protected  function getFixedHolidaysChristian($year)
+    public function getFixedHolidaysChristian($year)
     {
         $fixedDays = [];
 
