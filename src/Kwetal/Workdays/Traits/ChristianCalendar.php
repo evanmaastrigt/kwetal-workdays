@@ -12,6 +12,11 @@ trait ChristianCalendar
     public $hasEpiphany = false;
 
     /**
+     * @var bool $hasCleanMonday
+     */
+    public $hasCleanMonday = false;
+
+    /**
      * @var bool $hasEasterSunday
      */
     public $hasEasterSunday = false;
@@ -39,6 +44,9 @@ trait ChristianCalendar
     {
         $variableDays = [];
 
+        if ($this->hasCleanMonday) {
+            $variableDays[] = $this->getCleanMonday($year);
+        }
         if ($this->hasEasterSunday) {
             $variableDays[] = $this->getEasterSunday($year);
         }
@@ -70,6 +78,13 @@ trait ChristianCalendar
     private function getEpiphany($year)
     {
         return sprintf('%s-01-06', $year);
+    }
+
+    private function getCleanMonday($year)
+    {
+        return DateUtils::getEasterSunday($year)
+            ->sub(new \DateInterval('P48D'))
+            ->format('Y-m-d');
     }
 
     private function getEasterSunday($year)
