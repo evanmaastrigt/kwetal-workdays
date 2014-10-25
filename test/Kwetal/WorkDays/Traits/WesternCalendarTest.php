@@ -10,7 +10,6 @@ class WesternCalenderTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-//        $this->traitObject = $this->getObjectForTrait('WesternCalendar');
         $this->traitObject = $this->getMockForTrait('Kwetal\WorkDays\Traits\WesternCalendar');
     }
 
