@@ -38,6 +38,16 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('2014-01-06', $value[0]);
     }
 
+    public function testGetFixedHolidaysChristianReturnsAnnunciationDay()
+    {
+        $this->traitObject->hasAnnunciation = true;
+        $value = $this->traitObject->getFixedHolidaysChristian(2014);
+
+        $this->assertInternalType('array', $value);
+        $this->assertCount(1, $value);
+        $this->assertEquals('2014-03-25', $value[0]);
+    }
+
     public function testGetVariableHolidaysChristianReturnsEmptyArray()
     {
         $value = $this->traitObject->getVariableHolidaysChristian(2014);

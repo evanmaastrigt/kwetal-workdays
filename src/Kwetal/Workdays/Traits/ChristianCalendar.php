@@ -12,6 +12,11 @@ trait ChristianCalendar
     public $hasEpiphany = false;
 
     /**
+     * @var bool $hasAnnunciation
+     */
+    public $hasAnnunciation = false;
+
+    /**
      * @var bool $hasCleanMonday
      */
     public $hasCleanMonday = false;
@@ -71,6 +76,9 @@ trait ChristianCalendar
         if ($this->hasEpiphany) {
             $fixedDays[] = $this->getEpiphany($year);
         }
+        if ($this->hasAnnunciation){
+            $fixedDays[] = $this->getAnnunciation($year);
+        }
 
         return $fixedDays;
     }
@@ -78,6 +86,11 @@ trait ChristianCalendar
     private function getEpiphany($year)
     {
         return sprintf('%s-01-06', $year);
+    }
+
+    private function getAnnunciation($year)
+    {
+        return sprintf('%s-03-25', $year);
     }
 
     private function getCleanMonday($year)
