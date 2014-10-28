@@ -187,6 +187,14 @@ trait ChristianCalendar
         return $fixedDays;
     }
 
+    public function getHolidaysChristian($year)
+    {
+        return array_merge(
+            $this->getVariableHolidaysChristian($year),
+            $this->getFixedHolidaysChristian($year)
+        );
+    }
+
     private function getEpiphany($year)
     {
         return sprintf('%s-01-06', $year);

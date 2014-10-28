@@ -10,25 +10,87 @@ class Netherland extends CalendarBase
 {
     use WesternCalendar, ChristianCalendar;
 
-    private $holidays = [];
+    /**
+     * @var array $holidays
+     */
+    protected  $holidays = [];
 
-    public function __construct()
+    /**
+     * @var array $yearsLoaded
+     */
+    protected  $yearsLoaded = [];
+
+    public function __construct($year)
     {
         $this->hasEasterSunday = true;
         $this->hasEasterMonday = true;
+        $this->hasAscensionThursday = true;
+        $this->hasWhitSunday = true;
+        $this->hasWhitMonday = true;
+        $this->hasChristmasSunday = true;
+        $this->hasChristmasMonday = true;
+
+        $this->loadHolidays($year);
     }
 
-    public function addHolidays($year)
+    public function getHolidays()
     {
+        return $this->holidays;
+    }
+
+    protected function loadHolidays($year)
+    {
+        if (in_array($year, $this->yearsLoaded)) {
+            return;
+        }
+
         $this->holidays = array_merge(
             $this->holidays,
-            $this->getVariableHolidaysChristian($year),
-            $this->getVariableHolidaysWestern($year),
-            $this->getFixedHolidaysChristian($year),
-            $this->getFixedHolidaysWestern($year)
+            $this->getHolidaysChristian($year),
+            $this->getHolidaysWestern($year),
+            $this->getLocalHolidays($year)
         );
 
-        return $this->holidays;
+        $this->yearsLoaded[] = $year;
+    }
+
+    protected function getLocalHolidays($year)
+    {
+        return array_merge(
+            $this->getMonarchDay($year),
+            $this->getLiberationDay($year)
+        );
+    }
+
+    protected function getMonarchDay($year)
+    {
+        if ($year < 1885) {
+            return [];
+        }
+        if ($year < 1948) {
+            return [sprintf('%s-08-31', $year)];
+        }
+        if ($year < 2014) {
+            $day = new \DateTime(sprintf('%s-04-30', $year));
+            if ($day->format('D') == 'Sun') {
+                return [sprintf('%s-04-29', $year)];
+            }
+            return [sprintf('%s-04-30', $year)];
+        }
+
+        $day = new \DateTime(sprintf('%s-04-27', $year));
+        if ($day->format('D') == 'Sun') {
+            return [sprintf('%s-04-26', $year)];
+        }
+        return [sprintf('%s-04-27', $year)];
+    }
+
+    protected function getLiberationDay($year)
+    {
+        if ($year % 5 !== 0) {
+            return [];
+        }
+        return [sprintf('%s-05-05', $year)];
     }
 }
 
