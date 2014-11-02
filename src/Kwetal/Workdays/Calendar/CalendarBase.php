@@ -5,6 +5,22 @@ namespace Kwetal\Workdays\Calendar;
 class CalendarBase
 {
     /**
+     * @var array $holidays
+     */
+    protected  $holidays = [];
+
+    /**
+     * @var array $yearsLoaded
+     */
+    protected  $yearsLoaded = [];
+
+
+    public function getHolidays()
+    {
+        return $this->holidays;
+    }
+
+    /**
      * @return array
      */
     public function getWeekendDays()

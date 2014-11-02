@@ -11,16 +11,6 @@ class Netherland extends CalendarBase implements CalendarInterface
 {
     use WesternCalendar, ChristianCalendar;
 
-    /**
-     * @var array $holidays
-     */
-    protected  $holidays = [];
-
-    /**
-     * @var array $yearsLoaded
-     */
-    protected  $yearsLoaded = [];
-
     public function __construct($year)
     {
         $this->hasEasterSunday = true;
@@ -32,11 +22,6 @@ class Netherland extends CalendarBase implements CalendarInterface
         $this->hasChristmasMonday = true;
 
         $this->loadHolidays($year);
-    }
-
-    public function getHolidays()
-    {
-        return $this->holidays;
     }
 
     public function loadHolidays($year)
