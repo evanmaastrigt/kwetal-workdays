@@ -95,4 +95,14 @@ class NetherlandTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains('2015-05-05', $value);
     }
+
+    public function testAddWorkDays()
+    {
+        $this->createCalendar(2014);
+
+        $day = new \DateTime('2014-12-19');
+        $newDay = $this->calendar->getNextWorkday($day);
+
+        $x = 0;
+    }
 }
