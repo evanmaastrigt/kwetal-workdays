@@ -3,10 +3,11 @@
 namespace Kwetal\Workdays\Calendar\World\Europe;
 
 use Kwetal\Workdays\Calendar\CalendarBase;
+use Kwetal\Workdays\Calendar\CalendarInterface;
 use Kwetal\Workdays\Traits\WesternCalendar;
 use Kwetal\Workdays\Traits\ChristianCalendar;
 
-class Netherland extends CalendarBase
+class Netherland extends CalendarBase implements CalendarInterface
 {
     use WesternCalendar, ChristianCalendar;
 
@@ -38,7 +39,7 @@ class Netherland extends CalendarBase
         return $this->holidays;
     }
 
-    protected function loadHolidays($year)
+    public function loadHolidays($year)
     {
         if (in_array($year, $this->yearsLoaded)) {
             return;
@@ -54,7 +55,7 @@ class Netherland extends CalendarBase
         $this->yearsLoaded[] = $year;
     }
 
-    protected function getLocalHolidays($year)
+    public function getLocalHolidays($year)
     {
         return array_merge(
             $this->getMonarchDay($year),
@@ -62,7 +63,7 @@ class Netherland extends CalendarBase
         );
     }
 
-    protected function getMonarchDay($year)
+    protected  function getMonarchDay($year)
     {
         if ($year < 1885) {
             return [];
