@@ -6,10 +6,14 @@ use Kwetal\Workdays\Calendar\CalendarBase;
 use Kwetal\Workdays\Calendar\CalendarInterface;
 use Kwetal\Workdays\Traits\WesternCalendar;
 use Kwetal\Workdays\Traits\ChristianCalendar;
+use Kwetal\Workdays\Traits\LabourDay;
 
 class Belgium extends CalendarBase implements CalendarInterface
 {
-    use WesternCalendar, ChristianCalendar;
+    use
+        WesternCalendar,
+        ChristianCalendar,
+        LabourDay;
 
     public function __construct($year)
     {
@@ -44,18 +48,16 @@ class Belgium extends CalendarBase implements CalendarInterface
 
     public function getLocalHolidays($year)
     {
-        return arry_merge(
+        return array_merge(
             $this->getLabourDay($year),
+            $this->getTheOtherLabourDay($year),
             $this->getArmisticeDay($year)
         );
     }
 
-    protected function getLabourDay($year)
+    protected function getTheOtherLabourDay($year)
     {
-        return [
-            sprintf('%s-05-01', $year),
-            sprintf('%s-07-21', $year),
-        ];
+        return [sprintf('%s-07-21', $year),];
     }
 
     protected function getArmisticeDay($year)
