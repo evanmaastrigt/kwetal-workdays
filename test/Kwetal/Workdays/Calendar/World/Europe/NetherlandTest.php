@@ -101,8 +101,8 @@ class NetherlandTest extends PHPUnit_Framework_TestCase
         $this->createCalendar(2014);
 
         $day = new \DateTime('2014-12-19');
-        $newDay = $this->calendar->getNextWorkday($day);
+        $this->calendar->addWorkdays($day, 20);
 
-        $x = 0;
+        $this->assertEquals('2015-01-21', $day->format('Y-m-d'));
     }
 }
