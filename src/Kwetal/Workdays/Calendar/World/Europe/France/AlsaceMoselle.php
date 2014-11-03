@@ -11,6 +11,6 @@ class AlsaceMoselle extends France
         $this->hasGoodFriday = true;
         $this->hasChristmasMonday = true;
 
-        parent:__construct($year);
+        parent::__construct($year);
     }
 } 
