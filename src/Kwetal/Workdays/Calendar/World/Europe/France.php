@@ -6,10 +6,14 @@ use Kwetal\Workdays\Calendar\CalendarBase;
 use Kwetal\Workdays\Calendar\CalendarInterface;
 use Kwetal\Workdays\Traits\WesternCalendar;
 use Kwetal\Workdays\Traits\ChristianCalendar;
+use Kwetal\Workdays\Traits\LabourDay;
 
 class France extends CalendarBase implements CalendarInterface
 {
-    use WesternCalendar, ChristianCalendar;
+    use
+        WesternCalendar,
+        ChristianCalendar,
+        LabourDay;
 
     public function __construct($year)
     {
@@ -49,11 +53,6 @@ class France extends CalendarBase implements CalendarInterface
             $this->getBastilleDay($year),
             $this->getArmisticeDay($year)
         );
-    }
-
-    protected function getLabourDay($year)
-    {
-        return [sprintf('%s-05-01', $year)];
     }
 
     protected function getVictoryInEuropeDay($year)
