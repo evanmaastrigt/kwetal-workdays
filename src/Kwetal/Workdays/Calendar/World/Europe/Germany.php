@@ -52,7 +52,7 @@ class Germany extends CalendarBase implements CalendarInterface
             $this->getGermanUnityDay($year)
         );
     }
-    
+
     protected function getGermanUnityDay($year)
     {
         return [sprintf('%s-10-03', $year)];
