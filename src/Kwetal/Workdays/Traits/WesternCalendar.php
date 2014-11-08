@@ -2,8 +2,12 @@
 
 namespace Kwetal\Workdays\Traits;
 
+use Kwetal\DateUtils\DateTime\DateTime;
+
 trait WesternCalendar
 {
+    public $labelNewYearsDay = 'New Years Day';
+
     public function getVariableHolidaysWestern($year)
     {
         return [];
@@ -11,7 +15,9 @@ trait WesternCalendar
 
     public function getFixedHolidaysWestern($year)
     {
-        return [sprintf('%s-01-01', $year)];
+        $day = new DateTime(sprintf('%s-01-01', $year));
+
+        return [$day->addLabel($this->labelNewYearsDay)];
     }
 
     public function getHolidaysWestern($year)

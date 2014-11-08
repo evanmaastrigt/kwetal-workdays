@@ -3,6 +3,7 @@
 namespace Kwetal\Workdays\Traits;
 
 use Kwetal\DateUtils\DateUtils;
+use Kwetal\DateUtils\DateTime\DateTime;
 
 trait ChristianCalendar
 {
@@ -12,9 +13,19 @@ trait ChristianCalendar
     public $hasEpiphany = false;
 
     /**
+     * @var string $labelEpiphany
+     */
+    public $labelEpiphany = 'Epiphany';
+
+    /**
      * @var bool $hasAnnunciation
      */
     public $hasAnnunciation = false;
+
+    /**
+     * @var string $labelAnnunciation
+     */
+    public $labelAnnunciation = 'Annunciation';
 
     /**
      * @var bool $hasCleanMonday
@@ -22,9 +33,19 @@ trait ChristianCalendar
     public $hasCleanMonday = false;
 
     /**
+     * @var string $labelCleanMonday
+     */
+    public $labelCleanMonday = 'Clean Monday';
+
+    /**
      * @var bool $hasAshWednesday
      */
     public $hasAshWednesday = false;
+
+    /**
+     * @var string $labelAshWednesday
+     */
+    public $labelAshWednesday = 'Ash Wednesday';
 
     /**
      * @var bool $hasHolyThursday
@@ -32,9 +53,19 @@ trait ChristianCalendar
     public $hasHolyThursday = false;
 
     /**
+     * @var string $labelHolyThursday
+     */
+    public $labelHolyThursday = 'Holy Thursday';
+
+    /**
      * @var bool $hasGoodFriday
      */
     public $hasGoodFriday = false;
+
+    /**
+     * @var string $labelGoodFriday
+     */
+    public $labelGoodFriday = 'Good Friday';
 
     /**
      * @var bool $hasEasterSaturday
@@ -42,9 +73,19 @@ trait ChristianCalendar
     public $hasEasterSaturday = false;
 
     /**
+     * @var string $labelEasterSaturday
+     */
+    public $labelEasterSaturday = 'Easter Saturday';
+
+    /**
      * @var bool $hasEasterSunday
      */
     public $hasEasterSunday = false;
+
+    /**
+     * @var string $labelEasterSunday
+     */
+    public $labelEasterSunday = 'Easter Sunday';
 
     /**
      * @var bool $hasEasterMonday
@@ -52,13 +93,29 @@ trait ChristianCalendar
     public $hasEasterMonday = false;
 
     /**
+     * @var string $labelEasterMonday
+     */
+    public $labelEasterMonday = 'Easter Monday';
+
+    /**
      * @var bool $hasAscensionThursday
      */
     public $hasAscensionThursday = false;
+
+    /**
+     * @var string $labelAscensionThursday
+     */
+    public $labelAscensionThursday = 'Ascension Thursday';
+
     /**
      * @var bool $hasWithSunday
      */
     public $hasWhitSunday = false;
+
+    /**
+     * @var string $labelWhitSunday
+     */
+    public $labelWhitSunday = 'Whit Sunday';
 
     /**
      * @var bool $whitMonday
@@ -66,9 +123,19 @@ trait ChristianCalendar
     public $hasWhitMonday = false;
 
     /**
+     * @var string $labelWhitMonday
+     */
+    public $labelWhitMonday = 'Whit Monday';
+
+    /**
      * @var bool $hasCorpusChristi
      */
     public $hasCorpusChristi = false;
+
+    /**
+     * @var string $labelCorpusChristi
+     */
+    public $labelCorpusChristi = 'Corpus Christi';
 
     /**
      * @var bool $hasAssumption
@@ -76,9 +143,19 @@ trait ChristianCalendar
     public $hasAssumption = false;
 
     /**
+     * @var string $labelAssumption
+     */
+    public $labelAssumption = 'Assumption';
+
+    /**
      * @var bool $hasAllSaints
      */
     public $hasAllSaints = false;
+
+    /**
+     * @var string $labelAllSaints
+     */
+    public $labelAllSaints = 'All Saints';
 
     /**
      * @var bool $hasAllSouls
@@ -86,9 +163,19 @@ trait ChristianCalendar
     public $hasAllSouls = false;
 
     /**
+     * @var string $labelAllSouls
+     */
+    public $labelAllSouls = 'All Saints';
+
+    /**
      * @var bool $hasImmaculateConception
      */
     public $hasImmaculateConception = false;
+
+    /**
+     * @var string $labelImmaculateConception
+     */
+    public $labelImmaculateConception = 'Immaculate Conception';
 
     /**
      * @var bool $hasChristmasEve
@@ -96,14 +183,29 @@ trait ChristianCalendar
     public $hasChristmasEve = false;
 
     /**
+     * @var string $labelChristmasEve
+     */
+    public $labelChristmasEve = 'Christmas Eve';
+
+    /**
      * @var bool $hasChristmasSunday
      */
     public $hasChristmasSunday = false;
 
     /**
+     * @var string $labelChristmasSunday
+     */
+    public $labelChristmasSunday = 'Christmas Sunday';
+
+    /**
      * @var bool $hasChristmasMonday
      */
     public $hasChristmasMonday = false;
+
+    /**
+     * @var string $labelChristmasMonday
+     */
+    public $labelChristmasMonday = 'Christmas Monday';
 
     /**
      * @param $year
@@ -197,118 +299,140 @@ trait ChristianCalendar
 
     private function getEpiphany($year)
     {
-        return sprintf('%s-01-06', $year);
+        $day = new DateTime('%s-01-06', $year);
+
+        return $day->addLabel($this->labelEpiphany);
     }
 
     private function getAnnunciation($year)
     {
-        return sprintf('%s-03-25', $year);
+        $day = new DateTime('%s-03-25', $year);
+        return $day->addLabel($this->labelAnnunciation);
     }
 
     private function getCleanMonday($year)
     {
         return DateUtils::getEasterSunday($year)
             ->sub(new \DateInterval('P48D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelCleanMonday);
+
     }
 
-    private function getAshWednesday($year) {
+    private function getAshWednesday($year)
+    {
         return DateUtils::getEasterSunday($year)
             ->sub(new \DateInterval('P46D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelAshWednesday);
     }
 
-    private function getHolyThursday($year) {
+    private function getHolyThursday($year)
+    {
         return DateUtils::getEasterSunday($year)
             ->sub(new \DateInterval('P3D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelHolyThursday);
     }
 
-    private function getGoodFriday($year) {
+    private function getGoodFriday($year)
+    {
         return DateUtils::getEasterSunday($year)
             ->sub(new \DateInterval('P2D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelGoodFriday);
     }
 
-    private function getEasterSaturday($year) {
+    private function getEasterSaturday($year)
+    {
         return DateUtils::getEasterSunday($year)
             ->sub(new \DateInterval('P1D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelEasterSaturday);
     }
 
     private function getEasterSunday($year)
     {
-        return DateUtils::getEasterSunday($year)->format('Y-m-d');
+        return DateUtils::getEasterSunday($year)
+            ->addLabel($this->labelEasterSunday);
     }
 
     private function getEasterMonday($year)
     {
-        $day = DateUtils::getEasterSunday($year);
-        $day->add(new \DateInterval('P1D'));
-
-        return $day->format('Y-m-d');
+        return DateUtils::getEasterSunday($year)
+                ->add(new \DateInterval('P1D'))
+                ->addLabel($this->labelEasterMonday);
     }
 
     private function getAscensionThursday($year)
     {
         return DateUtils::getEasterSunday($year)
             ->add(new \DateInterval('P39D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelAscensionThursday);
     }
 
     private function getWhitSunday($year)
     {
         return DateUtils::getEasterSunday($year)
             ->add(new \DateInterval('P49D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelWhitSunday);
     }
 
     private function getWhitMonday($year)
     {
         return DateUtils::getEasterSunday($year)
             ->add(new \DateInterval('P50D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelWhitMonday);
     }
 
     private function getCorpusChristi($year)
     {
         return DateUtils::getEasterSunday($year)
             ->add(new \DateInterval('P60D'))
-            ->format('Y-m-d');
+            ->addLabel($this->labelCorpusChristi);
     }
 
     private function getAssumption($year)
     {
-        return sprintf('%s-08-15', $year);
+        $day = new DateTime(sprintf('%s-08-15', $year));
+
+        return $day->addLabel($this->labelAssumption);
     }
 
     private function getAllSaints($year)
     {
-        return sprintf('%s-11-01', $year);
+        $day = new DateTime(sprintf('%s-11-01', $year));
+
+        return $day->addLabel($this->labelAllSaints);
     }
 
     private function getAllSouls($year)
     {
-        return sprintf('%s-11-02', $year);
+        $day = new DateTime(sprintf('%s-11-02', $year));
+
+        return $day->addLabel($this->labelAllSouls);
     }
 
     private function getImmaculateConception($year)
     {
-        return sprintf('%s-12-08', $year);
+        $day = new DateTime(sprintf('%s-12-08', $year));
+
+        return $day->addLabel($this->labelImmaculateConception);
     }
 
     private function getChristmasEve($year)
     {
-        return sprintf('%s-12-24', $year);
+        $day = new DateTime(sprintf('%s-12-24', $year));
+
+        return $day->addLabel($this->labelChristmasEve);
     }
 
     private function getChristmasSunday($year)
     {
-        return sprintf('%s-12-25', $year);
+        $day = new DateTime(sprintf('%s-12-25', $year));
+
+        return $day->addLabel($this->labelChristmasSunday);
     }
 
     private function getChristmasMonday($year)
     {
-        return sprintf('%s-12-26', $year);
+        $day = new DateTime(sprintf('%s-12-26', $year));
+
+        return $day->addLabel($this->labelChristmasMonday);
     }
 }
