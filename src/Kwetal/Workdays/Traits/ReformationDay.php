@@ -21,6 +21,6 @@ trait ReformationDay
     {
         $day = new DateTime(sprintf('%s-10-31', $year));
 
-        return $day->addLabel($this->labelReformationDay);
+        return [$day->addLabel($this->labelReformationDay)];
     }
 } 
