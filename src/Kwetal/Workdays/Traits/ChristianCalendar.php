@@ -208,7 +208,9 @@ trait ChristianCalendar
     public $labelChristmasMonday = 'Christmas Monday';
 
     /**
-     * @param $year
+     * Returns the variable Chritian Holydays.
+     *
+     * @param int $year
      * @return array
      */
     public function getVariableHolidaysChristian($year)
@@ -254,6 +256,12 @@ trait ChristianCalendar
         return $variableDays;
     }
 
+    /**
+     * Returns the fixed (not-variable) Christian Holidays
+     *
+     * @param int $year
+     * @return array
+     */
     public function getFixedHolidaysChristian($year)
     {
         $fixedDays = [];
@@ -289,6 +297,12 @@ trait ChristianCalendar
         return $fixedDays;
     }
 
+    /**
+     * Returns all the Christian holydays
+     *
+     * @param int $year
+     * @return array
+     */
     public function getHolidaysChristian($year)
     {
         return array_merge(
@@ -297,6 +311,12 @@ trait ChristianCalendar
         );
     }
 
+    /**
+     * Returns Epiphany day
+     *
+     * @param $year
+     * @return DateTime
+     */
     private function getEpiphany($year)
     {
         $day = new DateTime('%s-01-06', $year);
@@ -304,12 +324,24 @@ trait ChristianCalendar
         return $day->addLabel($this->labelEpiphany);
     }
 
+    /**
+     * Returns Annunciaton day
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getAnnunciation($year)
     {
         $day = new DateTime('%s-03-25', $year);
         return $day->addLabel($this->labelAnnunciation);
     }
 
+    /**
+     * Returns Clean Monday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getCleanMonday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -318,6 +350,12 @@ trait ChristianCalendar
 
     }
 
+    /**
+     * Returns Ash Wednesday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getAshWednesday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -325,6 +363,12 @@ trait ChristianCalendar
             ->addLabel($this->labelAshWednesday);
     }
 
+    /**
+     * Returns Holy Thursday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getHolyThursday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -332,6 +376,12 @@ trait ChristianCalendar
             ->addLabel($this->labelHolyThursday);
     }
 
+    /**
+     * Returns Good Friday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getGoodFriday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -339,6 +389,12 @@ trait ChristianCalendar
             ->addLabel($this->labelGoodFriday);
     }
 
+    /**
+     * Returns Easter Saturday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getEasterSaturday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -346,12 +402,24 @@ trait ChristianCalendar
             ->addLabel($this->labelEasterSaturday);
     }
 
+    /**
+     * Returns Easter Sunday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getEasterSunday($year)
     {
         return DateUtils::getEasterSunday($year)
             ->addLabel($this->labelEasterSunday);
     }
 
+    /**
+     * Returns Easter Monday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getEasterMonday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -359,6 +427,12 @@ trait ChristianCalendar
                 ->addLabel($this->labelEasterMonday);
     }
 
+    /**
+     * Returns Ascension Thursday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getAscensionThursday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -366,6 +440,12 @@ trait ChristianCalendar
             ->addLabel($this->labelAscensionThursday);
     }
 
+    /**
+     * Returns Whit Sunday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getWhitSunday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -373,6 +453,12 @@ trait ChristianCalendar
             ->addLabel($this->labelWhitSunday);
     }
 
+    /**
+     * Returns Whit Monday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getWhitMonday($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -380,6 +466,12 @@ trait ChristianCalendar
             ->addLabel($this->labelWhitMonday);
     }
 
+    /**
+     * Returns Corpus Christi
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getCorpusChristi($year)
     {
         return DateUtils::getEasterSunday($year)
@@ -387,6 +479,12 @@ trait ChristianCalendar
             ->addLabel($this->labelCorpusChristi);
     }
 
+    /**
+     * Returns Assumption day
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getAssumption($year)
     {
         $day = new DateTime(sprintf('%s-08-15', $year));
@@ -394,6 +492,12 @@ trait ChristianCalendar
         return $day->addLabel($this->labelAssumption);
     }
 
+    /**
+     * Returns All Saints day
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getAllSaints($year)
     {
         $day = new DateTime(sprintf('%s-11-01', $year));
@@ -401,6 +505,12 @@ trait ChristianCalendar
         return $day->addLabel($this->labelAllSaints);
     }
 
+    /**
+     * Returns All Souls day
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getAllSouls($year)
     {
         $day = new DateTime(sprintf('%s-11-02', $year));
@@ -408,6 +518,12 @@ trait ChristianCalendar
         return $day->addLabel($this->labelAllSouls);
     }
 
+    /**
+     * Returns Immaculate Conception
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getImmaculateConception($year)
     {
         $day = new DateTime(sprintf('%s-12-08', $year));
@@ -415,6 +531,12 @@ trait ChristianCalendar
         return $day->addLabel($this->labelImmaculateConception);
     }
 
+    /**
+     * Returns Christmas Eve
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getChristmasEve($year)
     {
         $day = new DateTime(sprintf('%s-12-24', $year));
@@ -422,6 +544,12 @@ trait ChristianCalendar
         return $day->addLabel($this->labelChristmasEve);
     }
 
+    /**
+     * Returns Christmas Sunday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getChristmasSunday($year)
     {
         $day = new DateTime(sprintf('%s-12-25', $year));
@@ -429,6 +557,12 @@ trait ChristianCalendar
         return $day->addLabel($this->labelChristmasSunday);
     }
 
+    /**
+     * Returns Christmas Monday
+     *
+     * @param int $year
+     * @return DateTime
+     */
     private function getChristmasMonday($year)
     {
         $day = new DateTime(sprintf('%s-12-26', $year));
