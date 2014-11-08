@@ -99,7 +99,7 @@ class Germany extends CalendarBase implements CalendarInterface
 
     /**
      * Returns German Unity Day for the given year
-     * 
+     *
      * @param int $year
      * @return array
      */
