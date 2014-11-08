@@ -21,6 +21,6 @@ trait LabourDay
     {
         $day = new DateTime(sprintf('%s-05-01', $year));
 
-        return $day->addLabel($this->labelLabourDay);
+        return [$day->addLabel($this->labelLabourDay)];
     }
 } 
