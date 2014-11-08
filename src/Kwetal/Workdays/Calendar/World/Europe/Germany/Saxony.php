@@ -2,6 +2,7 @@
 
 namespace Kwetal\Workdays\Calendar\World\Europe\Germany;
 
+use Kwetal\DateUtils\DateTime\DateTime;
 use Kwetal\DateUtils\DateUtils;
 use Kwetal\Workdays\Calendar\World\Europe\Germany;
 use Kwetal\Workdays\Traits\ReformationDay;
@@ -9,6 +10,18 @@ use Kwetal\Workdays\Traits\ReformationDay;
 class Saxony extends Germany
 {
     use ReformationDay;
+
+    /**
+     * Constructor
+     *
+     * @param int $year
+     */
+    public function __construct($year)
+    {
+        parent::__construct($year);
+
+        $this->labelReformationDay = 'Reformationstag';
+    }
 
     /**
      * Return the local holidays specific for this state
@@ -33,8 +46,12 @@ class Saxony extends Germany
      */
     protected function getRepentanceDay($year)
     {
-        $day = new \DateTime(sprintf('%s-11-23', $year));
+        $day = DateUtils::getNthWeekdayBefore(
+            new DateTime(sprintf('%s-11-23', $year)),
+            DateUtils::WED,
+            1
+        );
 
-        return [DateUtils::getNthWeekdayBefore($day, DateUtils::WED, 1)];
+        return [$day->addLabel('Buß- und Bettag')];
     }
 } 

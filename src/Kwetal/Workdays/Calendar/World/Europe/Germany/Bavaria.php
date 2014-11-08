@@ -7,6 +7,11 @@ use Kwetal\Workdays\Calendar\World\Europe\Germany;
 
 class Bavaria extends Germany
 {
+    /**
+     * Constructor
+     *
+     * @param int $year
+     */
     public function __construct($year)
     {
         $this->hasEpiphany = true;

@@ -9,6 +9,11 @@ class SaxonyAnhalt extends Germany
 {
     use ReformationDay;
 
+    /**
+     * Constructor
+     *
+     * @param int $year
+     */
     public function __construct($year)
     {
         $this->hasEpiphany = true;
@@ -16,6 +21,12 @@ class SaxonyAnhalt extends Germany
         parent::__construct($year);
     }
 
+    /**
+     * Returns all the local holidays for the given year
+     *
+     * @param int $year
+     * @return array
+     */
     public function getLocalHolidays($year)
     {
         return array_merge(

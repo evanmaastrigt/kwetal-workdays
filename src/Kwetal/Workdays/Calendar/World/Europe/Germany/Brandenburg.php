@@ -5,11 +5,28 @@ namespace Kwetal\Workdays\Calendar\World\Europe\Germany;
 use Kwetal\Workdays\Calendar\World\Europe\Germany;
 use Kwetal\Workdays\Traits\ReformationDay;
 
-
 class Brandenburg extends Germany
 {
     use ReformationDay;
 
+    /**
+     * Constructor
+     *
+     * @param int $year
+     */
+    public function __construct($year)
+    {
+        parrent::__construct($year);
+
+        $this->labelReformationDay = 'Reformationstag';
+    }
+
+    /**
+     * Returns all local holidays for the given year
+     *
+     * @param int $year
+     * @return array
+     */
     public function getLocalHolidays($year)
     {
         return array_merge(
