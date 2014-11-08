@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/evanmaastrigt/kwetal-dateutils.git",
-                "reference": "76a6a0b0c587777d07a9bbfa7a8d2e536b9868f8"
+                "reference": "f7442e285c7ab27cceaa663ab1c34c41b50db584"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/evanmaastrigt/kwetal-dateutils/zipball/76a6a0b0c587777d07a9bbfa7a8d2e536b9868f8",
-                "reference": "76a6a0b0c587777d07a9bbfa7a8d2e536b9868f8",
+                "url": "https://api.github.com/repos/evanmaastrigt/kwetal-dateutils/zipball/f7442e285c7ab27cceaa663ab1c34c41b50db584",
+                "reference": "f7442e285c7ab27cceaa663ab1c34c41b50db584",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.3.*"
@@ -41,7 +41,14 @@
             "license": [
                 "MIT"
             ],
-            "time": "2014-11-03 14:19:24"
+            "authors": [
+                {
+                    "name": "Edwin van Maastrigt",
+                    "homepage": "https://github.com/evanmaastrigt?tab=repositories"
+                }
+            ],
+            "description": "A number of utility methods for handling date related operations, wrapped in a object-oriented interface",
+            "time": "2014-11-08 12:55:24"
         }
     ],
     "packages-dev": [
