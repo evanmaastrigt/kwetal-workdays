@@ -2,6 +2,7 @@
 
 namespace Kwetal\Workdays\Calendar\World\Europe;
 
+use Kwetal\DateUtils\DateTime\DateTime;
 use Kwetal\Workdays\Calendar\CalendarBase;
 use Kwetal\Workdays\Calendar\CalendarInterface;
 use Kwetal\Workdays\Traits\WesternCalendar;
@@ -15,20 +16,43 @@ class France extends CalendarBase implements CalendarInterface
         ChristianCalendar,
         LabourDay;
 
+    /**
+     * Constructor
+     *
+     * @param int $year
+     */
     public function __construct($year)
     {
-        $this->hasEasterSunday = true;
-        $this->hasEasterMonday = true;
         $this->hasAscensionThursday = true;
+        $this->labelAscensionThursday = 'Ascension';
+
         $this->hasWhitSunday = true;
+        $this->labelWhitSunday = 'Dimanche de Pentecôte';
+
         $this->hasWhitMonday = true;
+        $this->labelWhitMonday = 'Lundi de Pentecôte';
+
         $this->hasAllSaints = true;
+        $this->labelAllSaints = 'La Toussaint';
+
         $this->hasAssumption = true;
+        $this->labelAssumption = "L'Assomption de Marie";
+
         $this->hasChristmasSunday = true;
+        $this->labelChristmasSunday = 'Noël';
+
+        $this->labelLabourDay = 'Fête des Travailleurs';
+
+        $this->labelNewYearsDay = 'Nouvel an';
 
         $this->loadHolidays($year);
     }
 
+    /**
+     * Load all the holidays fi=or the given year
+     *
+     * @param int $year
+     */
     public function loadHolidays($year)
     {
         if (in_array($year, $this->yearsLoaded)) {
@@ -45,6 +69,12 @@ class France extends CalendarBase implements CalendarInterface
         $this->yearsLoaded[] = $year;
     }
 
+    /**
+     * Returns all the local holidays for the given year
+     *
+     * @param int $year
+     * @return array
+     */
     public function getLocalHolidays($year)
     {
         return array_merge(
@@ -55,18 +85,42 @@ class France extends CalendarBase implements CalendarInterface
         );
     }
 
+    /**
+     * Returns the Victory Day in Europe Day
+     *
+     * @param int $year
+     * @return array
+     */
     protected function getVictoryInEuropeDay($year)
     {
-        return [sprintf('%s-05-08', $year)];
+        $day = new DateTime(sprintf('%s-05-08', $year));
+
+        return [$day->addLabel('Fête de la Victoire')];
     }
 
+    /**
+     * Returns Bastille day
+     *
+     * @param int $year
+     * @return array
+     */
     protected function getBastilleDay($year)
     {
-        return [sprintf('%s-07-14', $year)];
+        $day = new DateTime(sprintf('%s-07-14', $year));
+
+        return [$day->addLabel('Fête nationale')];
     }
 
+    /**
+     * Returns Armistice day
+     *
+     * @param int $year
+     * @return array
+     */
     protected function getArmisticeDay($year)
     {
-        return [sprintf('%s-11-11', $year)];
+        $day = new DateTime(sprintf('%s-11-11', $year));
+
+        return [$day->addLabel('Armistice de 1918')];
     }
 }
