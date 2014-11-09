@@ -17,6 +17,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
     {
         $this->assertInternalType('array', $value);
         $this->assertCount(1, $value);
+        $this->assertInstanceOf('\DateTimeInterface', $value[0]);
     }
 
     public function testClassStructure()
@@ -53,7 +54,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-01-06', $value[0]);
+        $this->assertEquals('2014-01-06', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsAnnunciationDay()
@@ -62,7 +63,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-03-25', $value[0]);
+        $this->assertEquals('2014-03-25', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsAssumptionDay()
@@ -71,7 +72,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-08-15', $value[0]);
+        $this->assertEquals('2014-08-15', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsAllSaintsDay()
@@ -80,7 +81,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-11-01', $value[0]);
+        $this->assertEquals('2014-11-01', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsAllSoulsDay()
@@ -89,7 +90,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-11-02', $value[0]);
+        $this->assertEquals('2014-11-02', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsImmaculateConception()
@@ -98,7 +99,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-12-08', $value[0]);
+        $this->assertEquals('2014-12-08', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsChristmasEve()
@@ -107,7 +108,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-12-24', $value[0]);
+        $this->assertEquals('2014-12-24', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsChristmasSunday()
@@ -116,7 +117,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-12-25', $value[0]);
+        $this->assertEquals('2014-12-25', $value[0]->format('Y-m-d'));
     }
 
     public function testGetFixedHolidaysChristianReturnsChristmasMonday()
@@ -125,7 +126,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getFixedHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-12-26', $value[0]);
+        $this->assertEquals('2014-12-26', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsEmptyArray()
@@ -142,7 +143,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-03-03', $value[0]);
+        $this->assertEquals('2014-03-03', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsAshWednesday()
@@ -151,7 +152,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-03-05', $value[0]);
+        $this->assertEquals('2014-03-05', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsHolyThursday()
@@ -160,7 +161,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-04-17', $value[0]);
+        $this->assertEquals('2014-04-17', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsGoodFriday()
@@ -169,7 +170,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-04-18', $value[0]);
+        $this->assertEquals('2014-04-18', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsEasterSaturday()
@@ -178,7 +179,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-04-19', $value[0]);
+        $this->assertEquals('2014-04-19', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsEasterSunday()
@@ -187,7 +188,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-04-20', $value[0]);
+        $this->assertEquals('2014-04-20', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsEasterMonday()
@@ -196,7 +197,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-04-21', $value[0]);
+        $this->assertEquals('2014-04-21', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsAscensionThursday()
@@ -205,7 +206,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-05-29', $value[0]);
+        $this->assertEquals('2014-05-29', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsWhitSunday()
@@ -214,7 +215,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-06-08', $value[0]);
+        $this->assertEquals('2014-06-08', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsWhitMonday()
@@ -223,7 +224,7 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-06-09', $value[0]);
+        $this->assertEquals('2014-06-09', $value[0]->format('Y-m-d'));
     }
 
     public function testGetVariableHolidaysChristianReturnsCorpusChristi()
@@ -232,6 +233,6 @@ class ChristianCalendarTest extends PHPUnit_Framework_TestCase
         $value = $this->traitObject->getVariableHolidaysChristian(2014);
 
         $this->hasReturnedValueCorrectStructure($value);
-        $this->assertEquals('2014-06-19', $value[0]);
+        $this->assertEquals('2014-06-19', $value[0]->format('Y-m-d'));
     }
 } 
