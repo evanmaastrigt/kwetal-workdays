@@ -7,20 +7,27 @@ class CalendarBase
     /**
      * @var array $holidays
      */
-    protected  $holidays = [];
+    protected $holidays = [];
 
     /**
      * @var array $yearsLoaded
      */
-    protected  $yearsLoaded = [];
+    protected $yearsLoaded = [];
 
 
+    /**
+     * Return the loaded holidays
+     *
+     * @return array
+     */
     public function getHolidays()
     {
         return $this->holidays;
     }
 
     /**
+     * Returns the weekend days for this calendar
+     *
      * @return array
      */
     public function getWeekendDays()
@@ -29,16 +36,18 @@ class CalendarBase
     }
 
     /**
-     * @param \DateTime $day
+     * Answer if the given day is a workday in this calendar
+     *
+     * @param \DateTimeInterface $day
      * @return bool
      */
-    public function isWorkday(\DateTime $day)
+    public function isWorkday(\DateTimeInterface $day)
     {
         if (in_array($day->format('D'), $this->getWeekendDays())) {
             return false;
         }
 
-        if (in_array($day->format('Y-m-d'), $this->holidays)) {
+        if (in_array($day, $this->holidays)) {
             return false;
         }
 
@@ -46,19 +55,23 @@ class CalendarBase
     }
 
     /**
-     * @param \DateTime $day
+     * Answer if the given day is a holiday in this calendar
+     *
+     * @param \DateTimeInterface $day
      * @return bool
      */
-    public function isHoliday(\DateTime $day)
+    public function isHoliday(\DateTimeInterface $day)
     {
-        return ! $this->isWorkday($day);
+        return !$this->isWorkday($day);
     }
 
     /**
-     * @param \DateTime $day
+     * Add a number of workingdays to a day
+     *
+     * @param \DateTimeInterface $day
      * @param int $delta
      */
-    public function addWorkdays(\DateTime $day, $delta)
+    public function addWorkdays(\DateTimeInterface $day, $delta)
     {
         $interval = new \DateInterval('P1D');
         $year = $day->format('Y');
@@ -69,7 +82,7 @@ class CalendarBase
 
             if ($day->format('Y') !== $year) {
                 $year = $day->format('Y');
-                $this->loadHolidays((int) $year);
+                $this->loadHolidays((int)$year);
             }
 
             if ($this->isWorkday($day)) {
@@ -79,10 +92,12 @@ class CalendarBase
     }
 
     /**
-     * @param \DateTime $day
+     * Returns the next workday
+     *
+     * @param \DateTimeInterface $day
      * @return \DateTime
      */
-    public function getNextWorkday(\DateTime $day)
+    public function getNextWorkday(\DateTimeInterface $day)
     {
         $returnDay = clone $day;
 
@@ -90,5 +105,4 @@ class CalendarBase
 
         return $returnDay;
     }
-} 
-
+}
