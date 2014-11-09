@@ -319,7 +319,7 @@ trait ChristianCalendar
      */
     private function getEpiphany($year)
     {
-        $day = new DateTime('%s-01-06', $year);
+        $day = new DateTime(sprintf('%s-01-06', $year));
 
         return $day->addLabel($this->labelEpiphany);
     }
@@ -332,7 +332,7 @@ trait ChristianCalendar
      */
     private function getAnnunciation($year)
     {
-        $day = new DateTime('%s-03-25', $year);
+        $day = new DateTime(sprintf('%s-03-25', $year));
         return $day->addLabel($this->labelAnnunciation);
     }
 
