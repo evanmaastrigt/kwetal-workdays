@@ -3,6 +3,7 @@
 namespace Kwetal\Workdays\Traits;
 
 use PHPUnit_Framework_TestCase;
+//use Kwetal\DateUtils\DateTime\DateTime;
 
 class WesternCalenderTest extends PHPUnit_Framework_TestCase
 {
@@ -27,6 +28,7 @@ class WesternCalenderTest extends PHPUnit_Framework_TestCase
 
         $this->assertInternalType('array', $value);
         $this->assertCount(1, $value);
-        $this->assertEquals('2014-01-01', $value[0]);
+        $this->assertInstanceOf('\DateTimeInterface', $value[0]);
+        $this->assertEquals('2014-01-01', $value[0]->format('Y-m-d'));
     }
 }
