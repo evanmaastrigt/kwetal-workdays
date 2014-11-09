@@ -2,6 +2,7 @@
 
 namespace Kwetal\Workdays\Calendar\World\Europe\Germany;
 
+use Kwetal\DateUtils\DateTime\DateTime;
 use PHPUnit_Framework_TestCase;
 
 class BrandenburgTest extends PHPUnit_Framework_TestCase
@@ -34,18 +35,7 @@ class BrandenburgTest extends PHPUnit_Framework_TestCase
         $this->createCalendar(2014);
         $value = $this->calendar->getHolidays();
 
-        $this->assertContains('2014-01-01', $value);
-        $this->assertContains('2014-04-18', $value);
-        $this->assertContains('2014-04-20', $value);
-        $this->assertContains('2014-04-21', $value);
-        $this->assertContains('2014-05-01', $value);
-        $this->assertContains('2014-05-29', $value);
-        $this->assertContains('2014-06-08', $value);
-        $this->assertContains('2014-06-09', $value);
-        $this->assertContains('2014-10-03', $value);
-        $this->assertContains('2014-10-31', $value);
-        $this->assertContains('2014-12-25', $value);
-        $this->assertContains('2014-12-26', $value);
+        $this->assertTrue(in_array(new DateTime('2014-10-31'), $value));
     }
 
     public function testAddWorkDays()
