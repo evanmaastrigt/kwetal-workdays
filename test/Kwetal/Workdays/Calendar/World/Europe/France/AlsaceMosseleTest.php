@@ -2,6 +2,7 @@
 
 namespace Kwetal\Workdays\Calendar\World\Europe\France;
 
+use Kwetal\DateUtils\DateTime\DateTime;
 use PHPUnit_Framework_TestCase;
 
 class AlsaceMosseleTest extends PHPUnit_Framework_TestCase
@@ -26,7 +27,7 @@ class AlsaceMosseleTest extends PHPUnit_Framework_TestCase
         $this->createCalendar(2014);
         $value = $this->calendar->getHolidays();
 
-        $this->assertCount(15, $value);
+        $this->assertCount(13, $value);
     }
 
     public function testGetHolidaysHasAllHolidays()
@@ -34,21 +35,8 @@ class AlsaceMosseleTest extends PHPUnit_Framework_TestCase
         $this->createCalendar(2014);
         $value = $this->calendar->getHolidays();
 
-        $this->assertContains('2014-01-01', $value);
-        $this->assertContains('2014-04-18', $value);
-        $this->assertContains('2014-04-20', $value);
-        $this->assertContains('2014-04-21', $value);
-        $this->assertContains('2014-05-01', $value);
-        $this->assertContains('2014-05-08', $value);
-        $this->assertContains('2014-05-29', $value);
-        $this->assertContains('2014-06-08', $value);
-        $this->assertContains('2014-06-09', $value);
-        $this->assertContains('2014-07-14', $value);
-        $this->assertContains('2014-08-15', $value);
-        $this->assertContains('2014-11-01', $value);
-        $this->assertContains('2014-11-11', $value);
-        $this->assertContains('2014-12-25', $value);
-        $this->assertContains('2014-12-26', $value);
+        $this->assertTrue(in_array(new DateTime('2014-04-18'), $value));
+        $this->assertTrue(in_array(new DateTime('2014-12-26'), $value));
     }
 
     public function testAddWorkDays()
@@ -63,6 +51,6 @@ class AlsaceMosseleTest extends PHPUnit_Framework_TestCase
         $day = new \DateTime('2014-04-16');
         $this->calendar->addWorkdays($day, 2);
 
-        $this->assertEquals('2014-04-22', $day->format('Y-m-d'));
+        $this->assertEquals('2014-04-21', $day->format('Y-m-d'));
     }
 } 
