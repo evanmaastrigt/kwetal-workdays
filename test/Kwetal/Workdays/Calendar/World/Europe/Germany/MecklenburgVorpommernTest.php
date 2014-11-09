@@ -11,7 +11,7 @@ class MecklenburgVorpommernTest extends PHPUnit_Framework_TestCase
 
     public function createCalendar($year)
     {
-        $this->calendar = new Brandenburg($year);
+        $this->calendar = new MecklenburgVorpommern($year);
     }
 
     public function testGetAllHolidaysReturnsArray()
