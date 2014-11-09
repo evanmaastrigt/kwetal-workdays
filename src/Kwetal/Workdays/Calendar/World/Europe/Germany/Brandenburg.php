@@ -16,7 +16,7 @@ class Brandenburg extends Germany
      */
     public function __construct($year)
     {
-        parrent::__construct($year);
+        parent::__construct($year);
 
         $this->labelReformationDay = 'Reformationstag';
     }
