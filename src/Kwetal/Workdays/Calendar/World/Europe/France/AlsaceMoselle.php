@@ -8,7 +8,7 @@ class AlsaceMoselle extends France
 {
     /**
      * Constructor
-     * 
+     *
      * @param int $year
      */
     public function __construct($year)
