@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "04d7f5b26374ef10893273e867b74af1",
+    "hash": "5d0f5be9e978adb0979c876987671fe9",
     "packages": [
         {
             "name": "kwetal/dateutils",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/evanmaastrigt/kwetal-dateutils.git",
-                "reference": "f7442e285c7ab27cceaa663ab1c34c41b50db584"
+                "reference": "86e9de544598cd3f71ed7a658dc5d9a5e1937a4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/evanmaastrigt/kwetal-dateutils/zipball/f7442e285c7ab27cceaa663ab1c34c41b50db584",
-                "reference": "f7442e285c7ab27cceaa663ab1c34c41b50db584",
+                "url": "https://api.github.com/repos/evanmaastrigt/kwetal-dateutils/zipball/86e9de544598cd3f71ed7a658dc5d9a5e1937a4a",
+                "reference": "86e9de544598cd3f71ed7a658dc5d9a5e1937a4a",
                 "shasum": ""
             },
             "require": {
@@ -33,8 +33,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Kwetal\\DateUtils": "src/"
+                "psr-4": {
+                    "Kwetal\\DateUtils\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "A number of utility methods for handling date related operations, wrapped in a object-oriented interface",
-            "time": "2014-11-08 12:55:24"
+            "time": "2014-11-09 21:25:19"
         }
     ],
     "packages-dev": [

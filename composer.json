@@ -12,8 +12,8 @@
     "suggest": {
     },
     "autoload": {
-        "psr-0": {
-            "Kwetal\\Workdays": "src/"
+        "psr-4": {
+            "Kwetal\\Workdays\\": "src"
         }
     }
 }
