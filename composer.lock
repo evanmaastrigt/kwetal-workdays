@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d0f5be9e978adb0979c876987671fe9",
+    "hash": "447132ae6dacd751f0c5851297f3c29a",
     "packages": [
         {
             "name": "kwetal/dateutils",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/evanmaastrigt/kwetal-dateutils.git",
-                "reference": "86e9de544598cd3f71ed7a658dc5d9a5e1937a4a"
+                "reference": "3c2781c3ed60bb58b09c92310844efa9e3570bdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/evanmaastrigt/kwetal-dateutils/zipball/86e9de544598cd3f71ed7a658dc5d9a5e1937a4a",
-                "reference": "86e9de544598cd3f71ed7a658dc5d9a5e1937a4a",
+                "url": "https://api.github.com/repos/evanmaastrigt/kwetal-dateutils/zipball/3c2781c3ed60bb58b09c92310844efa9e3570bdd",
+                "reference": "3c2781c3ed60bb58b09c92310844efa9e3570bdd",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "A number of utility methods for handling date related operations, wrapped in a object-oriented interface",
-            "time": "2014-11-09 21:25:19"
+            "time": "2014-11-10 20:07:40"
         }
     ],
     "packages-dev": [
